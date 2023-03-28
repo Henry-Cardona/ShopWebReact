@@ -1,5 +1,6 @@
 
-import CardOne from './CardOne';
+import CardProduct from './CardProduct';
+import ItemProduct from './ItemProduct';
 import { useDispatch, useSelector } from "react-redux";
 import { AddNewItemToCart, ClearToCart } from '../actions/shoppingActions';
 
@@ -13,18 +14,20 @@ const GridProducts = () => {
             <article style={{display:"flex"}}>
                 {
                     products.map(product => (
-                        <CardOne 
+                        <CardProduct 
                             key={product.id} 
                             informationProduct={product}
                             AddNewItemToCart={() => dispatch(AddNewItemToCart(product.id))}/>
-                ))}
+                        )
+                    )
+                }
             </article>
             <h3>Carrito</h3>
             <article>
-                <button onClick={() => dispatch(ClearToCart)}>Limpiar Carro</button>
+                {/*<button onClick={() => dispatch(ClearToCart)}>Limpiar Carro</button>*/}
                 {
                     cart.map((product, index) => (
-                        <CardOne key={index} informationProduct={product}></CardOne>
+                        <ItemProduct key={index} informationProduct={product}></ItemProduct>
                     ))
                 }
             </article>

@@ -3,14 +3,14 @@
  *** by Henry Cardona
  **/
 
-import "./components-css/CardOne.css";
+import "./components-css/CardProduct.css";
 import React, { Component } from "react";
 import TestImageBrand from "../test images/nike.png";
 import TestImageProductOne from "../test images/ImageTestProductOne.png";
 import TestImageProductTwo from "../test images/ImageTestProductTwo.png";
 import TestImageProductThree from "../test images/ImageTestProductThree.png";
 
-class CardOne extends Component {
+class CardProduct extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -142,8 +142,8 @@ class CardOne extends Component {
     }
 }
 
-CardOne.defaultProps = {
+CardProduct.defaultProps = {
     cadena: "Add to bag",
 };
 
-export default CardOne;
+export default CardProduct;

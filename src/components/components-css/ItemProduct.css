@@ -1,0 +1,10 @@
+
+.Container-ItemProduct {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.Specs-ItemProduct {
+    width: 200px;
+}
