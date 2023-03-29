@@ -5,6 +5,8 @@ import './components-css/ItemProduct.css'
 class ItemProduct extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+        };
     }
     render() {
         const { informationProduct } = this.props;
