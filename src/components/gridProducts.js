@@ -1,26 +1,25 @@
 import CardProduct from "./CardProduct";
 import ItemProduct from "./ItemProduct";
+import "swiper/css";
+import "swiper/css/scrollbar";
+import "./components-css/Slide.css";
 import { useDispatch, useSelector } from "react-redux";
-import { AddNewItemToCart, ClearToCart } from "../actions/shoppingActions";
+import { AddNewItemToCart } from "../actions/shoppingActions";
 import { useState, useEffect } from "react";
-import {
-    collection,
-    doc,
-    getDocs,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-} from "firebase/firestore";
+import { Scrollbar } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/db";
 
+//register();
 const GridProducts = () => {
     const [lstClientes, setLstClientes] = useState([]);
     useEffect(() => {
         const coleccionCliente = collection(db, "cv19014Productos");
         getDocs(coleccionCliente).then((response) => {
             const ob = response.docs.map((doc) => ({
-                Id : doc.id,
-                Data: doc.data()
+                Id: doc.id,
+                Data: doc.data(),
             }));
             setLstClientes(ob);
         });
@@ -31,15 +30,22 @@ const GridProducts = () => {
     return (
         <div>
             <h1>Grid Products</h1>
-            <article style={{ display: "flex", width: "100%"}}>
-                {products.map((product) => (
-                    <CardProduct
-                        key={product.id}
-                        informationProduct={product}
-                        AddNewItemToCart={() => dispatch(AddNewItemToCart(product.id))}
-                    />
-                ))}
-            </article>
+            <Swiper className="mySwiper"
+                scrollbar={{hide: true}}
+                modules={[Scrollbar]}
+                slidesPerView={3}>
+                {
+                    lstClientes.map((product) => (
+                        <SwiperSlide className="Slide-Card">
+                            <CardProduct
+                                key={product.id}
+                                informationProduct={product}
+                                AddNewItemToCart={() => dispatch(AddNewItemToCart(product.id))}
+                            />
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
             <h3>Carrito</h3>
             <article>
                 {cart.map((product, index) => (

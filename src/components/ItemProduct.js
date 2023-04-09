@@ -1,5 +1,6 @@
 
 import { Component } from "react";
+import 'boxicons'
 import './components-css/ItemProduct.css'
 
 class ItemProduct extends Component {
@@ -11,12 +12,15 @@ class ItemProduct extends Component {
     render() {
         const { informationProduct } = this.props;
         return (
-            <div className="s">
+            <div>
                 <div className="Container-ItemProduct">
-                    <div className="Specs-ItemProduct">icon</div>
+                    <div className="Specs-ItemProduct"><i class='bx bxs-purchase-tag'></i></div>
                     <div className="Specs-ItemProduct">{informationProduct.name}</div>
-                    <div className="Specs-ItemProduct">{informationProduct.price}</div>
-                    <div className="Specs-ItemProduct">{informationProduct.quantity}</div>
+                    <div className="Specs-ItemProduct">
+                        Precio: ${informationProduct.price}
+                    </div>
+                    <div className="Specs-ItemProduct">Cantidad: {informationProduct.quantity}</div>
+                    <div className="Specs-ItemProduct">Total:{informationProduct.quantity*informationProduct.price}</div>
                 </div>
             </div>
         );

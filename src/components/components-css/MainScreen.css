@@ -1,0 +1,55 @@
+
+.Container-Screen {
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.Container-Screen .Screen-Text {
+    width: 50%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.Container-Screen .Screen-Text h2 {
+    font-size: 10vw;
+    font-weight: 900;
+    line-height: 10vw;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.Container-Screen .Screen-Text h2::first-line {
+    color: white;
+    letter-spacing: 5px;
+    text-shadow: 0px 5px 10px rgba(45, 55, 68, 0.2);
+}
+
+.Container-Screen .Screen-Text h5 {
+    color: black;
+    font-size: 2vw;
+    font-weight: 300;
+    text-align: left;
+    margin-top: 20px;
+    margin-right: 10vw;
+    text-transform: capitalize;
+}
+
+.Container-Screen .Screen-Text p {
+    font-size: 1vw;
+    font-weight: 400;
+    color: black;
+    margin-top: 10px;
+}
+
+.Container-Screen .Screen-Image {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
